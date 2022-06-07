@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Button from "./Button.js";
 import Player from "./Player.js";
 import PlayerForm from "./PlayerForm.js";
+import { getFromLocal, setToLocal } from "./lib/localStorage";
 
 function App() {
-  const [players, setPlayers] = useState([]);
+  const [players, setPlayers] = useState(getFromLocal("players") ?? []);
+  useEffect(() => setToLocal("players", players), [players]);
 
   function createPlayer(player) {
     setPlayers([...players, player]);
@@ -31,9 +33,10 @@ function App() {
 
   function resetAllScores() {
     setPlayers(
-      players.map((player) => {
-        return { ...player, score: 0 };
-      })
+      players.map((player) => ({
+        ...player,
+        score: 0,
+      }))
     );
   }
 
