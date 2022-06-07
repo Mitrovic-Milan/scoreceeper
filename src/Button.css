@@ -1,0 +1,9 @@
+.Button {
+  background-color: blueviolet;
+  color: aliceblue;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font: inherit;
+  width: 100%;
+}
