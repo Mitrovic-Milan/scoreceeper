@@ -57,8 +57,8 @@ function App() {
           />
         ))}
       </ul>
-      <Button onClick={resetAllScores}>Reset scores</Button>
-      <Button onClick={resetAllPlayers}>New game</Button>
+      <Button buttonType="Reset score">Reset scores</Button>
+      <Button buttonType="New game">New game</Button>
       <PlayerForm onCreatePlayer={createPlayer} />
     </div>
   );
